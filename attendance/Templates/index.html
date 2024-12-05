@@ -1,0 +1,105 @@
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" href="https://dti.hamplustech.com/images/DTI.png">
+
+    <title>Attendance System</title>
+    <style>
+      /* Import Google font - Poppins */
+      @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap");
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: "Poppins", sans-serif;
+      }
+    
+      section {
+        height: 100vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background: #f0faff;
+        flex-direction: column;
+  
+        padding: 50px;
+        background-image: linear-gradient(
+          45deg,
+          rgba(30, 170, 226, 0.795),
+          rgb(0, 30, 130)
+        );
+      }
+
+      form {
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+      }
+      form > div {
+        display: flex;
+        gap: 20px;
+      }
+      form > div > input,
+      button {
+        height: 40px;
+        outline: none;
+        border: none;
+        padding: 0 15px;
+        font-size: 16px;
+        font-weight: 400;
+        color: #333;
+        border-radius: 8px;
+        background: #fff;
+      }
+
+      button {
+        margin-top: 15px;
+        padding: none;
+        font-size: 18px;
+        font-weight: bold;
+        cursor: pointer;
+        border: none;
+      }
+      button:hover {
+        background-image: linear-gradient(
+          170deg,
+          rgba(30, 170, 226, 0.795),
+          white
+        );
+        transition: all ease-in-out 1s;
+      }
+      a{
+        position: fixed;
+        inset: 0;
+        padding: 10px;
+        color: white;
+        font-weight: bold;
+        width: max-content;
+        height: max-content;
+      }
+    </style>
+  </head>
+  <body>
+    <section>
+        <a href="attendants">view attendants</a>
+
+      <h1>DTI 2.0 Attendance</h1>
+      <br> <br>
+      <form action="save_attendant" method="POST">
+        {% csrf_token %}
+        <div class="">
+          <input type="text" name="name" placeholder="Full name"  />
+          <input type="text" name="department" placeholder="Department"  />
+        </div>
+        <div class="">
+          <input type="number" name="level" placeholder="Level"  />
+          <input type="text" name="contact" placeholder="Email/Tel"  />
+        </div>
+
+        <button>Submit</button>
+      </form>
+    </section>
+  </body>
+</html>
